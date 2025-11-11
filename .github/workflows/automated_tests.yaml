@@ -40,9 +40,9 @@ jobs:
 
     - name: Run tests
       run: |
-        robot -v browser=${{ matrix.browser }} 
-        --outputdir test_results/${{ matrix.browser }} 
-        --name "${{ matrix.browser }}" 
+        robot -v browser=${{ matrix.browser }} \
+        --outputdir test_results/${{ matrix.browser }} \ 
+        --name "${{ matrix.browser }}" \
         tests 
 
   upload-results:
