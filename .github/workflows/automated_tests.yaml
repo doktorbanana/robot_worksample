@@ -42,18 +42,31 @@ jobs:
     - name: Run tests
       run:
         scripts/run_tests.sh ${{ matrix.browser }}
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()  # Upload results even if tests fail
+      with:
+        name: test-results-${{ matrix.browser }}
+        path: test_results/${{ matrix.browser }}/
 
-  upload-results:
+  combine-results:
     needs: test
     runs-on: ubuntu-latest
+    if: always()
     steps:
+        - name: Download all test artifacts
+          uses: actions/download-artifact@v4
+          with:
+            path: artifacts/ 
+        
         - name: Combine test results
           run: |
-            rebot --outputdir test_results/combined --name Cross_Browser test_results/firefox/output.xml test_results/chromium/output.xml
+            rebot --outputdir test_results/combined --name "Cross Browser" artifacts/test-results-firefox/output.xml artifacts/test-results-chromium/output.xml
 
-        - name: Upload Test Results
+        - name: Upload Combined Results
           uses: actions/upload-artifact@v4
           if: always()  # Ensure this step runs even if previous steps fail
           with:
-            name: test-results
+            name: test-results-combined
             path: test_results/combined/
