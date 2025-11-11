@@ -14,7 +14,7 @@ jobs:
     strategy:
       matrix:
         python-version: ["3.13"]
-        browser: [ "chrome", "firefox" ]
+        browser: [ "chromium", "firefox" ]
 
     steps:
     - name: Checkout code
@@ -79,11 +79,11 @@ jobs:
     - name: Download all test artifacts
       uses: actions/download-artifact@v4
       with:
-        path: artifacts/ 
+        path: artifacts/
     
     - name: Combine test results
       run: |
-        rebot --outputdir test_results/combined --name "Cross Browser" artifacts/test-results/firefox/output.xml artifacts/test-results/chromium/output.xml
+        rebot --outputdir test_results/combined --name "Cross Browser" artifacts/test-results-firefox/output.xml artifacts/test-results-chromium/output.xml
 
     - name: Upload Combined Results
       uses: actions/upload-artifact@v4
