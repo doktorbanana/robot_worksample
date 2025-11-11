@@ -1,4 +1,10 @@
 venv/
 ._*
 
-reports/
+# Test results
+test_results/
+output.xml
+log.html
+playwright-log.txt
+report.html
+browser/
