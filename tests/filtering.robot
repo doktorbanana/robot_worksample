@@ -5,8 +5,8 @@ Documentation       This test suite verifies the filtering functionality of the 
 ...                 correctly displayed.
 
 Library             Browser
-Resource            ../Resources/PageObjects/LandingPage.resource
-Resource            ../Resources/CommonFunctionality.resource
+Resource            ../resources/pageobjects/LandingPage.resource
+Resource            ../resources/CommonFunctionality.resource
 
 Test Setup          Go To Landing Page
 
