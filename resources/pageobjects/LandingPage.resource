@@ -67,12 +67,8 @@ Clear Completed ToDo Items
 
 Clear Completed Button Is Visible
     [Documentation]    Returns True if the Clear Completed button is visible, False otherwise.
-    TRY
-        Get Element    button.clear-completed
-        RETURN    True
-    EXCEPT
-        RETURN    False
-    END
+    ${is_visible}=    Get Element States    button.clear-completed    then    bool(value & visible)
+    RETURN    ${is_visible}
 
 Edit ToDo Item By Text
     [Documentation]    Edits the ToDo item with the specified old text to have the new text.
