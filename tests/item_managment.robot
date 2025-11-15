@@ -1,11 +1,13 @@
 *** Settings ***
-Documentation     This test suite verifies the basic item management functionality of the TodoMVC application.
-...    It includes tests for adding, completing, removing, and editing ToDo items,
-...    as well as verifying the displayed count and the visibility of the clear completed button.
-Library   Browser
-Resource   ../Resources/PageObjects/LandingPage.resource
-Resource   ../Resources/CommonFunctionality.resource
-Test Setup    Go To Landing Page
+Documentation       This test suite verifies the basic item management functionality of the TodoMVC application.
+...                 It includes tests for adding, completing, removing, and editing ToDo items,
+...                 as well as verifying the displayed count and the visibility of the clear completed button.
+
+Library             Browser
+Resource            ../Resources/PageObjects/LandingPage.resource
+Resource            ../Resources/CommonFunctionality.resource
+
+Test Setup          Go To Landing Page
 
 
 *** Test Cases ***

@@ -1,8 +1,9 @@
 *** Settings ***
-Documentation    This Page Object represents the Landing Page of the TodoMVC application.
-...    It provides keywords to interact with and verify elements on the page.
-Library   Browser
-Resource   ../../Resources/CommonFunctionality.resource
+Documentation       This Page Object represents the Landing Page of the TodoMVC application.
+...                 It provides keywords to interact with and verify elements on the page.
+
+Library             Browser
+Resource            ../../Resources/CommonFunctionality.resource
 
 
 *** Keywords ***
@@ -67,7 +68,7 @@ Clear Completed ToDo Items
 Clear Completed Button Is Visible
     [Documentation]    Returns True if the Clear Completed button is visible, False otherwise.
     TRY
-        Get Element   button.clear-completed
+        Get Element    button.clear-completed
         RETURN    True
     EXCEPT
         RETURN    False
@@ -77,7 +78,7 @@ Edit ToDo Item By Text
     [Documentation]    Edits the ToDo item with the specified old text to have the new text.
     [Arguments]    ${old_text}    ${new_text}
     ${item}=    Get Todo Item By Text    ${old_text}
-    Click With Options   ${item} >> div.view > label    clickCount=2
+    Click With Options    ${item} >> div.view > label    clickCount=2
     ${edit_input}=    Get Element    ${item} >> input.edit
     Clear Text    ${edit_input}
     Fill Text    ${edit_input}    ${new_text}

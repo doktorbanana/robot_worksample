@@ -1,13 +1,14 @@
 *** Settings ***
-Documentation     This Resource file contains common functionality shared across multiple Page Objects.
-...    It includes keywords for navigating to the landing page of the TodoMVC application.
-Library   Browser
+Documentation       This Resource file contains common functionality shared across multiple Page Objects.
+...                 It includes keywords for navigating to the landing page of the TodoMVC application.
+
+Library             Browser
 
 
 *** Variables ***
-${LANDING_PAGE_URL}    https://todomvc.com/examples/angular/dist/browser/#/all
-${BROWSER}    chromium
-${HEADLESS}    True
+${LANDING_PAGE_URL}     https://todomvc.com/examples/angular/dist/browser/#/all
+${BROWSER}              chromium
+${HEADLESS}             True
 
 
 *** Keywords ***
