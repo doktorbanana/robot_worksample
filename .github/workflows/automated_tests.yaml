@@ -90,4 +90,6 @@ jobs:
       uses: actions/deploy-pages@v4
     
     - name: Output the Pages URL
-      run: echo "See test results here ${{ steps.deployment.outputs.page_url }}"
+      run: |
+        echo "See test results here ${{ steps.deployment.outputs.page_url }}/report.html"
+        echo "See test log here ${{ steps.deployment.outputs.page_url }}/log.html"
