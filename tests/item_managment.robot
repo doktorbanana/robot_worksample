@@ -14,9 +14,7 @@ Test Setup          Go To Landing Page
 Test Adding ToDo Items
     [Documentation]    Tests adding multiple ToDo items.
     ...    Expects all added items to be in the list.
-    Add ToDo Item    Buy groceries
-    Add ToDo Item    Walk the dog
-    Add ToDo Item    Read a book
+    Add ToDo Items    Buy groceries    Walk the dog    Read a book
     Check Number Of ToDo Items    3
     Check List Has Item With Text    Buy groceries
     Check List Has Item With Text    Walk the dog
@@ -47,8 +45,7 @@ Test Edit ToDo Item
 Test Seeing Clear Completed Button
     [Documentation]    Tests the visibility of the Clear Completed button.
     ...    Expects the button to be visible only when there are completed items.
-    Add ToDo Item    Active Item
-    Add ToDo Item    Completed Item
+    Add ToDo Items    Active Item    Completed Item
     Mark ToDo Item As Completed By Text    Completed Item
     ${is_visible}=    Clear Completed Button Is Visible
     Should Be True    ${is_visible}
@@ -59,8 +56,7 @@ Test Seeing Clear Completed Button
 Test Removing Completed ToDo Items
     [Documentation]    Tests removing completed ToDo items.
     ...    Expects only active items to remain after clearing completed items.
-    Add ToDo Item    Active Item
-    Add ToDo Item    Completed Item
+    Add ToDo Items    Active Item    Completed Item
     Mark ToDo Item As Completed By Text    Completed Item
     Check Number Of ToDo Items    2
     Clear Completed ToDo Items
@@ -70,9 +66,7 @@ Test Removing Completed ToDo Items
 Test Count Displayed Matches Actual Count
     [Documentation]    Tests that the displayed ToDo count matches the actual number of items.
     ...    Expects the count to update correctly after adding and removing items.
-    Add ToDo Item    Task 1
-    Add ToDo Item    Task 2
-    Add ToDo Item    Task 3
+    Add ToDo Items    Task 1    Task 2    Task 3
     ${displayed_count}=    Get Displayed Todo Count
     Should Be Equal As Integers    ${displayed_count}    3
     Remove ToDo Item By Text    Task 2

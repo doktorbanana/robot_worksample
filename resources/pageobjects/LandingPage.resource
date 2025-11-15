@@ -13,6 +13,13 @@ Add ToDo Item
     Fill Text    input.new-todo    ${item_text}
     Press Keys    input.new-todo    Enter
 
+Add ToDo Items
+    [Documentation]    Adds multiple ToDo items from a list of texts.
+    [Arguments]    @{item_texts}
+    FOR    ${text}    IN    @{item_texts}
+        Add ToDo Item    ${text}
+    END
+
 Get Number Of ToDo Items
     [Documentation]    Returns the number of ToDo items currently in the list.
     ${count}=    Get Element Count    ul.todo-list li

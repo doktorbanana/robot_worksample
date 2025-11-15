@@ -16,9 +16,7 @@ Test Filtering ToDo Items
     [Documentation]    Tests filtering ToDo items by All, Active, and Completed.
     ...    Expects correct items to be shown for each filter.
 
-    Add ToDo Item    Active Item 1
-    Add ToDo Item    Active Item 2
-    Add ToDo Item    Completed Item 1
+    Add ToDo Items    Active Item 1    Active Item 2    Completed Item 1
     Mark ToDo Item As Completed By Text    Completed Item 1
 
     Check Filter Active Shows Only Items    Active Item 1    Active Item 2
@@ -29,8 +27,7 @@ Test Clearing Completed Items While Filtered
     [Documentation]    Tests clearing completed ToDo items while filtered to Active.
     ...    Expects only active items to remain after clearing completed items.
 
-    Add ToDo Item    Active Item
-    Add ToDo Item    Completed Item
+    Add ToDo Items    Active Item    Completed Item
     Mark ToDo Item As Completed By Text    Completed Item
     Set Filter To    Active
     Clear Completed ToDo Items
