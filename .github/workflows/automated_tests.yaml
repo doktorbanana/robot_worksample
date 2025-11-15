@@ -88,3 +88,6 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+    
+    - name: Output the Pages URL
+      run: echo "See test results here ${{ steps.deployment.outputs.page_url }}"
