@@ -83,7 +83,7 @@ jobs:
     - name: Upload Pages artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: test_results/combined/report.html
+        path: test_results/combined/
 
     - name: Deploy to GitHub Pages
       id: deployment
