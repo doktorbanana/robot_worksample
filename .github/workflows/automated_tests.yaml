@@ -67,7 +67,7 @@ jobs:
     - name: Combine test results
       run: |
         python -m pip install robotframework
-        rebot --outputdir test_results/combined --name "Cross Browser" artifacts/test-results-firefox/output.xml artifacts/test-results-chromium/output.xml
+        rebot --outputdir test_results/combined --name "Cross Browser" artifacts/*/output.xml
 
     - name: Upload Combined Results
       uses: actions/upload-artifact@v4
